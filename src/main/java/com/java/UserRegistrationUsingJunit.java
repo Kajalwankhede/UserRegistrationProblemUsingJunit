@@ -81,4 +81,26 @@ public class UserRegistrationUsingJunit {
 
         return result;
     }
+    public static boolean clearValidSampleEmail(String email) {
+        System.out.println("Checking password have 8 characters:");
+        list.add("user@domain.co.in");
+        list.add("user1@domain.com");
+        list.add("user.name@domain.com");
+        list.add("user#domain.com");//Invalid emails
+        list.add("@yahoo.com");
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        boolean result = (matcher.matches());
+        if (result == true) {
+            list.add(email);
+        } else {
+            list.add(" invalid");
+        }
+        for (int i= list.size()-1;i>1;i--){
+            list.remove(i);
+            System.out.println("List after removing Email Id: "+list);
+        }
+        return result;
+    }
 }

@@ -32,5 +32,11 @@ public class UserRegTestLogic {
        // assertEquals("Khjiytrdsl@12", UserRegistrationUsingJunit.passwordHaveEightCharacter("Khjiytrdsl@12"));
         assertEquals("khjiytrdsl@12", UserRegistrationUsingJunit.passwordHaveEightCharacter("khjiytrdsl@12"));
     }
+
+    @Test
+    public void claerValidEmail(){
+        assertEquals("kajal@gmail.com", UserRegistrationUsingJunit.clearValidSampleEmail("kajal@gmail.com"));
+
+    }
     }
 
