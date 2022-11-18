@@ -66,4 +66,19 @@ public class UserRegistrationUsingJunit {
 
          return result;
      }
+    public static boolean passwordHaveEightCharacter(String password) {
+        System.out.println("Checking password have 8 characters:");
+        list.add("khyuikljh");
+        String regex = "[A-Z]{1}[a-z0-9](?=.*[-+_!@#$%^&*.,?]).{8,}";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        boolean result = (matcher.matches());
+        if (result == true) {
+            list.add(password);
+        } else {
+            list.add(" invalid");
+        }
+
+        return result;
+    }
 }

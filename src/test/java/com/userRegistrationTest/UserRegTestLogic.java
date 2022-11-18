@@ -27,5 +27,10 @@ public class UserRegTestLogic {
        assertEquals("91 9809807657", UserRegistrationUsingJunit.predefinedMobileFormat("91 9809807657"));
         // assertEquals("919809807657", UserRegistrationUsingJunit.predefinedMobileFormat("919809807657"));
     }
+    @Test
+    public void passwordEightCharacter(){
+       // assertEquals("Khjiytrdsl@12", UserRegistrationUsingJunit.passwordHaveEightCharacter("Khjiytrdsl@12"));
+        assertEquals("khjiytrdsl@12", UserRegistrationUsingJunit.passwordHaveEightCharacter("khjiytrdsl@12"));
+    }
     }
 
