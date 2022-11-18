@@ -51,4 +51,19 @@ public class UserRegistrationUsingJunit {
         return result;
 
     }
+     public static boolean predefinedMobileFormat(String phoneNumber) {
+        System.out.println("Checking predefined mobile format:");
+        list.add("91 9876098765");
+        String regex = "[91]+() +[789][0-9]{9}";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(phoneNumber);
+        boolean result = (matcher.matches());
+        if (result == true) {
+            list.add(phoneNumber);
+        } else {
+            list.add(" invalid");
+        }
+
+         return result;
+     }
 }
