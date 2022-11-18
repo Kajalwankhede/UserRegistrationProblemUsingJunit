@@ -36,4 +36,19 @@ public class UserRegistrationUsingJunit {
         return result;
 
     }
+    public static boolean isValidEmailId(String EmailId) {
+        System.out.println("Checking Vali dEmail Id:");
+        list.add("Dicruz");
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(EmailId);
+        boolean result = (matcher.matches());
+        if (result == true) {
+            list.add(EmailId);
+        } else {
+            list.add("invalid name");
+        }
+        return result;
+
+    }
 }
