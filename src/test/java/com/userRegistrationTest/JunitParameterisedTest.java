@@ -1,11 +1,11 @@
 package com.userRegistrationTest;
+import com.java.InvalidUserDetailException;
 import com.java.UserRegistrationUsingJunit;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
-
 public class JunitParameterisedTest {
     private final boolean result;
     private final String emailAddress;
@@ -40,7 +40,7 @@ public class JunitParameterisedTest {
     }
 
     @Test
-    public void validateEmailTest() {
+    public void validateEmailTest() throws InvalidUserDetailException {
         user=new UserRegistrationUsingJunit();
         boolean result= user.clearValidSampleEmail(emailAddress);
         Assert.assertEquals(emailAddress,result);

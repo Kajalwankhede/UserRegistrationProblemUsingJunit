@@ -4,8 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class UserRegistrationUsingJunit {
     static ArrayList<String> list = new ArrayList<String>();
-
-    public static boolean isValidFirstName(String firstName) {
+    public static boolean isValidFirstName(String firstName) throws InvalidUserDetailException {
         System.out.println("Checking Valid First Name:");
         list.add("Sunny");
         list.add("Jonny");
@@ -14,14 +13,13 @@ public class UserRegistrationUsingJunit {
         Matcher matcher = pattern.matcher(firstName);
         boolean result = (matcher.matches());
         if (result == true) {
-            list.add("Valid name" + firstName);
-        } else {
-            list.add("invalid name");
+            list.add(firstName);
+            return true;
         }
-        return result;
-    }
+        throw new InvalidUserDetailException();
 
-    public static boolean isValidLastName(String lastName) {
+    }
+    public static boolean isValidLastName(String lastName) throws InvalidUserDetailException{
         System.out.println("Checking Valid Last Name:");
         list.add("Dicruz");
         String regex = "[A-Z]{1}[a-z]{3,}";
@@ -30,58 +28,50 @@ public class UserRegistrationUsingJunit {
         boolean result = (matcher.matches());
         if (result == true) {
             list.add(lastName);
-        } else {
-            list.add("invalid name");
+            return true;
         }
-        return result;
+        throw new InvalidUserDetailException();
 
     }
-    public static boolean isValidEmailId(String EmailId) {
-        System.out.println("Checking Vali dEmail Id:");
-        list.add("Dicruz");
+    public static boolean isValidEmailId(String EmailId) throws  InvalidUserDetailException {
+        list.add("Kajal@gmail.com");
         String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(EmailId);
         boolean result = (matcher.matches());
         if (result == true) {
-            list.add(EmailId);
-        } else {
-            list.add("invalid name");
+           return true;
         }
-        return result;
+
+        throw new InvalidUserDetailException();
 
     }
-     public static boolean predefinedMobileFormat(String phoneNumber) {
+     public static boolean predefinedMobileFormat(String phoneNumber) throws InvalidUserDetailException{
         System.out.println("Checking predefined mobile format:");
         list.add("91 9876098765");
         String regex = "[91]+() +[789][0-9]{9}";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(phoneNumber);
-        boolean result = (matcher.matches());
-        if (result == true) {
-            list.add(phoneNumber);
-        } else {
-            list.add(" invalid");
-        }
+         boolean result = (matcher.matches());
+         if (result == true) {
+             return true;
+         }
+         throw new InvalidUserDetailException();
 
-         return result;
      }
-    public static boolean passwordHaveEightCharacter(String password) {
+    public static boolean passwordHaveEightCharacter(String password) throws InvalidUserDetailException {
         System.out.println("Checking password have 8 characters:");
-        list.add("khyuikljh");
+        list.add("Kajalfhh@12");
         String regex = "[A-Z]{1}[a-z0-9](?=.*[-+_!@#$%^&*.,?]).{8,}";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
         boolean result = (matcher.matches());
         if (result == true) {
-            list.add(password);
-        } else {
-            list.add(" invalid");
+           return true;
         }
-
-        return result;
+        throw new InvalidUserDetailException();
     }
-    public static boolean clearValidSampleEmail(String email) {
+    public static boolean clearValidSampleEmail(String email) throws InvalidUserDetailException {
         System.out.println("Checking password have 8 characters:");
         list.add("user@domain.co.in");
         list.add("user1@domain.com");
@@ -94,13 +84,11 @@ public class UserRegistrationUsingJunit {
         boolean result = (matcher.matches());
         if (result == true) {
             list.add(email);
-        } else {
-            list.add(" invalid");
         }
         for (int i= list.size()-1;i>1;i--){
             list.remove(i);
             System.out.println("List after removing Email Id: "+list);
         }
-        return result;
+        throw new InvalidUserDetailException();
     }
 }
