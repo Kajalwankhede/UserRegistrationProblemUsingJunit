@@ -42,7 +42,7 @@ public class JunitParameterisedTest {
     @Test
     public void validateEmailTest() throws InvalidUserDetailException {
         user=new UserRegistrationUsingJunit();
-        boolean result= user.clearValidSampleEmail(emailAddress);
+        boolean result= user.clearValidSampleEmail.check(emailAddress);
         Assert.assertEquals(emailAddress,result);
     }
 }
